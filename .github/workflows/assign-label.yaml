@@ -1,3 +1,10 @@
+name: Restrict pr label
+on:
+  pull_request:
+    branches:
+      - main
+      - develop_v2
+
 jobs:
   restrict-pr-label:
     runs-on: ubuntu-latest
@@ -9,4 +16,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           rules: |
-            development <- hotfix/* [05_hotfix]
+            main <- hotfix/* [05_hotfix]
