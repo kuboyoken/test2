@@ -1,0 +1,12 @@
+jobs:
+  restrict-pr-label:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: agaroot-technologies/action-restrict-pr-label@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          rules: |
+            development <- hotfix/* [05_hotfix]
